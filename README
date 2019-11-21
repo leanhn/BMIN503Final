@@ -4,3 +4,4 @@ git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/leanhn/BMIN503Final.git
 git push -u origin master
+!!! Do not distribute data without contacting the author!!!  
