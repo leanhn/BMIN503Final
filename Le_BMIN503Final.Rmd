@@ -1,0 +1,55 @@
+---
+title: "Evaluation of clinical notes, pathology reports, and institutional cancer registry for automated abstraction of Gleason score in prostate cancer patients"
+author: "Anh Le"
+date: "11/2/2019"
+output: html_document: 
+    toc: false 
+    depth: 3 
+    theme: paper 
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+***
+## Evaluation of clinical notes, pathology reports, and institutional cancer registry for automated abstraction of Gleason score in prostate cancer patients
+
+### Overview
+
+The primary objective of this study is to evaluate data structures including physician progress note, pathology report, and the institutional cancer registry for abstraction of Gleason score in prostate cancer patients. On a deeper level, the utility of data abstraction methods including natural language processing and use of legally-binding and abstractor-curated database is also being investigated.
+
+#### Introduction 
+
+Prostate cancer (PCa) is the most common cancer in American men where it is the second leading cause of cancer-related deaths. Recent studies suggest that up to 20% of metastatic PCa have germline mutations in DNA repair genes, which are associated with more aggressive disease and worse survival outcomes.There are various guidelines for germline mutation screenings for PCa patients, mostly in the metastatic population. However, there is a paucity of data on the incidence and role of inherited DNA repair mutations in localized PCa and the relationship between these mutations and Gleason score. Genotype-phenotype analysis are pertinent to determine the rate of germline DNA repair mutations in patients with localized PCa stratified by Gleason score.
+To address this problem, a multidisciplinary approach involing cancer genetics and informatics for clinical phenotyping and genotyping is imperative. This project can be broken down to two parallel arms: phenotyping and genotyping. In the phenotyping arm, we aim to develop a rule-based data extraction algorithm to perform large-scale deep phenotyping of prostate patients in the Penn Medicine BioBank (PMBB) for Gleason Score. To abstract a Gleason Score that is most clinically relevant, it is important to incorporate clinical expertise in urologic medical oncology, pathology, and surgery to formulate a “ground truth” for Gleason Score abstraction. In the genotyping arm, targeted gene and RNA sequencing are performed for this cohort. However, this project is focused on the phenotyping effort. 
+
+##### Methods
+
+A deep Phenotyping Rule-Based Algorithm is developed by team of physicians with expertise in urologic
+medical oncology, pathology, and surgery based on clinical practice principles and the Data Analytics Center using PennSeek. 
+Cohort identification is conducted by rapid phenotyping of the Penn Medicine Biobank using ICD9 code of “185 Malignant neoplasm of prostate” and ICD10 code of “C61 Malignant neoplasm of prostate”.
+Gleason Score is extracted from three data structures: (1) Pathology Reports,(2) Oncology Encounter Notes, and (3) Penn Medicine Cancer Registry.
+Gleason Score selection criteria prioritize Gleason score reported on prostatectomy pathology
+report. If there is no prostatectomy available, the highest score reported on all available biopsy reports regardless of temporal order.NLP is performed by DAC using PennSeek. PennSeek queries data pulled from PDS/ EPIC Clarity. Manual chart review is performed to create a gold standard set of Gleason Score data. Evaluation of data performance stratified by data structure 
+
+###### Results 
+
+Evaluation of data structure performance:[insert code to calculate positive prediction value, sensitivity, and F-score].
+
+data <-read.csv("BMIN503FinalData_Le.csv")
+
+# Demographic distribution (race, ethnicity, Ashkenazi Jewish descent)
+# Clinical data (age of diagnosis, clinical stage at diagnosis, biochemical recurrence)
+# Gleason Score Data Distribution
+Library(VennDiagram)
+VENN.LIST <- source
+venn.plot <- venn.diagram(VENN.LIST , NULL, fill=c("darkmagenta", "darkblue"), alpha=c(0.5,0.5), cex = 2, cat.fontface=4, category.names=c("A", "B"))
+grid.draw(venn.plot)
+# Data Structure Performance (Precision, Recall, F-Score from)
+library (caret)
+y <-
+predictions <-
+precision <- posPredValue(predictions, y, positive="1")
+recall <- sensitivity(predictions, y, positive="1")
+F1 <- (2 * precision * recall) / (precision + recall)
