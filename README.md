@@ -7,3 +7,5 @@ This is a ongoing non-pulished project. Please do not distribute data without co
 Anh Le - Penn Medicine
 ##### Files 
 BMIN503FinalData_Le.csv contains demographic data and cleaned data on gleason score abstracted by PennSeek and the Penn Medicine Cancer Registry from encounter notes and pathology reports. Encounter notes and pathology reports were pulled from both EPIC Clarity and the Penn Data Store.  
+Le_BMIN503Final.Rmd is the R work environment for analysis of this project.
+Le_BMIN503Final.html - *will update once done with coding*
